@@ -7,7 +7,9 @@ class Calculate_distance():
         self.distance_methods = {
             "euclidean": self.euclidean_distance,
             "city_block": self.manhattan_distance,
-            "manhattan": self.manhattan_distance
+            "manhattan": self.manhattan_distance,
+            "chessboard": self.chessboard_distance,
+            "chebyshev": self.chessboard_distance
         }
 
 
@@ -30,7 +32,13 @@ class Calculate_distance():
         return math.sqrt(sum((p1 - p2) ** 2 for p1, p2 in zip(point_1, point_2)))
     
     
-    
     def manhattan_distance(self, point_1, point_2):
 
         return sum(abs(p1 - p2) for p1, p2 in zip(point_1, point_2))
+    
+
+    def chessboard_distance(self, point_1, point_2):
+
+        return max(abs(a - b) for a, b in zip(point_1, point_2))
+    
+

@@ -107,7 +107,7 @@ class Performance_measure():
         
         else:
 
-            return f"Accuracy is not an appropiate measure because test set is unbalanced (IR = {IR})"
+            return f"Error rate is not an appropiate measure because test set is unbalanced (IR = {IR})"
 
 
     def calculate_sensitivity(self):
@@ -120,8 +120,8 @@ class Performance_measure():
 
     def calculate_specificity(self):
         
-        FP = self.confusion_matrix['TP']
-        TN = self.confusion_matrix['FN']
+        FP = self.confusion_matrix['FP']
+        TN = self.confusion_matrix['TN']
 
         return TN / (FP + TN)
 
@@ -137,7 +137,7 @@ class Performance_measure():
         
         except(ZeroDivisionError):
 
-            return f"It is not appropiate to calculate Precision because it leads to division by zero"
+            return f"Precision is not an appropiate measure because it leads to division by zero"
 
 
     def calculate_balanced_accuracy(self):
@@ -159,7 +159,7 @@ class Performance_measure():
         
         else:
 
-            return f"It is not appropiate to calculate f1_score because it leads to division by zero"
+            return f"f1_score is not an appropiate measure because it leads to division by zero"
 
 
     def calculate_MCC(self):
@@ -175,7 +175,7 @@ class Performance_measure():
         
         except(ZeroDivisionError):
 
-            return f"It is not appropiate to calculate the Matthews Correlation Coefficient because it leads to division by zero"
+            return f"Matthews Correlation Coefficient is not an appropiate measure because it leads to division by zero"
 
 
 
